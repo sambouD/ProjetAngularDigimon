@@ -1,5 +1,5 @@
 export class Digimon {
-  id:number;
+  id?:number;
   name: string;
   picture: string;
   level: string;
@@ -9,7 +9,7 @@ export class Digimon {
 
 
   constructor(
-    id: number = 0,
+
     name: string = '',
     picture: string = '',
     level: string = '',
@@ -17,7 +17,7 @@ export class Digimon {
     agility: number = 0,
     type: string = ''
   ){
-    this.id = id;
+
     this.name = name;
     this.picture = picture;
     this.level = level;
