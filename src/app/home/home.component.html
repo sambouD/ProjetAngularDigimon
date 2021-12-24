@@ -1,0 +1,21 @@
+
+<div class="main">
+  <h1 class="text-center"><img src="" style="width:50px;" alt="" *ngFor="let digimon of digimons"></h1>
+  <p class="text-center text-muted">Vous disposez de: {{digimons.length }} digimons</p>
+  <hr>
+  <section class="container">
+    <div class="row">
+      <div class="card col-md-4 m-3 mx-auto rounded-2"
+        style="width: 18rem;" *ngFor="let digimon of digimons">
+        <a [routerLink] = "['detail', digimon.id]">
+          <img [src]="digimon.picture" class="card-img-top" alt="...">
+          <hr>
+          <div class="card-body">
+            <h5 class="text-center">{{digimon.name}}</h5>
+            <h1 class="text-center"><img src="" style="width:30px;" alt="" ></h1>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,104 @@
+<section class="py-5">
+  <h1 class="text-center">Ajout de {{digimon.name}}</h1>
+  <div *ngIf="digimon"
+    class="container card px-4 px-lg-5 my-5">
+    <div class="row gx-4 gx-lg-5 align-items-center">
+      <div class="col-md-6"><img style="width:400px;" class="card-img-top mb-5 mb-md-0" [src]="digimon.picture"
+          alt="{{digimon.name}}"></div>
+      <div class="col-md-6">
+
+        <form *ngIf="digimon" (ngSubmit)="onSubmit(f)" #f="ngForm">
+          <div class="row">
+            <div class="col-md-12 offset-s2">
+              <div class="card-panel">
+                  <!-- digimon id -->
+                <div class="form-group">
+                  <label for="name">Id</label>
+                  <input type="text" class="form-control" id="id"
+                         [(ngModel)]="digimon.id" name="id"
+                         #name="ngModel">
+                  <div [hidden]="name.valid || name.pristine"
+                        class="card-panel red accent-1">
+                        Le nom du digimon est requis (1-25).
+                  </div>
+                </div>
+
+                <!-- digimon name -->
+                <div class="form-group">
+                  <label for="name">Nom</label>
+                  <input type="text" class="form-control" id="name"
+                          required
+                          pattern="^[a-zA-Z0-9àéèç]{1,25}$"
+                         [(ngModel)]="digimon.name" name="name"
+                         #name="ngModel">
+
+                  <div [hidden]="name.valid || name.pristine"
+                        class="card-panel red accent-1">
+                        Le nom du digimon est requis (1-25).
+                  </div>
+                </div>
+
+                <!-- digimon picture -->
+                <div class="form-group">
+                  <label for="picture">Photo</label>
+                  <input  type="url" class="form-control" id="picture"
+                         [(ngModel)]="digimon.picture" name="picture"
+                         #name="ngModel">
+                </div>
+
+                <!-- digimon Agilité -->
+                <div class="form-group">
+                  <label for="agil">Agilité</label>
+                  <input type="number" class="form-control" id="agil"
+                          required
+                          pattern="^[0-9]{1,3}$"
+                         [(ngModel)]="digimon.agility" name="agil"
+                         #agil="ngModel">
+                   <div [hidden]="agil.valid || agil.pristine"
+                         class="card-panel red accent-1">
+                         l'agilité du digimon est compris entre 0 et 999.
+                   </div>
+                </div>
+
+                <!-- digimon Puissance -->
+                <div class="form-group">
+                  <label for="puiss">Puissance</label>
+                  <input type="number" class="form-control" id="puiss"
+                          required
+                          pattern="^[0-9]{1,2}$"
+                         [(ngModel)]="digimon.attack" name="puiss"
+                         #puiss="ngModel">
+                   <div [hidden]="puiss.valid || puiss.pristine"
+                         class="card-panel red accent-1">
+                         La puissance du digimon est compris entre 0 et 99.
+                   </div>
+                </div>
+
+                 <!-- digimon picture -->
+                 <div class="form-group">
+                  <label for="types">Type</label>
+                  <input type="text" class="form-control" id="types"
+                         [(ngModel)]="digimon.type" name="types"
+                         #name="ngModel">
+                </div>
+                <!-- Submit button -->
+                <div class="divider"></div>
+                <div class="section center">
+                  <button type="submit"
+                  class="btn btn-dark"
+                  [routerLink]="['']">
+                  retour</button>
+                  <button type="submit"
+                    class="btn btn-dark"
+                    [disabled]="!f.form.valid">
+                    Valider</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <h4 *ngIf='!digimon' class="center">Aucun Digimon à afficher !</h4>
+</section>

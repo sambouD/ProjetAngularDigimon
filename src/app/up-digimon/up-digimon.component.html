@@ -1,0 +1,46 @@
+
+<section class="container card mt-5">
+  <h1 class="text-center">Edition de {{digimon.name}}</h1>
+
+  <div class="row">
+    <div class="col-md-4">
+      <img [src]="digimon.picture" alt="" style="width:350px;">
+    </div>
+
+    <div class="col-md-8">
+      <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="name">Nom</label>
+            <input type="text" class="form-control" id="name" required [(ngModel)]="digimon.name" #name="ngModel"
+              name="name">
+          </div>
+          <div class="form-group">
+            <label for="name">Photo</label>
+            <input type="text" class="form-control" id="picture" required [(ngModel)]="digimon.picture" #name="ngModel"
+              name="picture">
+          </div>
+          <div class="form-group">
+            <label for="name">Agilité</label>
+            <input type="text" class="form-control" id="agil" required [(ngModel)]="digimon.agility" #name="ngModel" name="agil">
+          </div>
+          <div class="form-group">
+            <label for="name">Puissance</label>
+            <input type="text" class="form-control" id="puiss" required [(ngModel)]="digimon.attack" #name="ngModel" name="puiss">
+          </div>
+          <div class="form-group">
+            <label for="name">Type</label>
+            <input type="text" class="form-control" id="types" required [(ngModel)]="digimon.type" #name="ngModel" name="types">
+          </div>
+
+          <div class="section center">
+            <button class="btn btn-primary" type="submit" >
+              Validez
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</section>
